@@ -1,0 +1,83 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<sub>.*)\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/seo",
+      "destination": "/seo-services",
+      "permanent": true
+    },
+    {
+      "source": "/gas-eo",
+      "destination": "/seo-services",
+      "permanent": true
+    },
+    {
+      "source": "/ads",
+      "destination": "/paid-media-agency",
+      "permanent": true
+    },
+    {
+      "source": "/paid-media",
+      "destination": "/paid-media-agency",
+      "permanent": true
+    },
+    {
+      "source": "/crm",
+      "destination": "/ai-crm",
+      "permanent": true
+    },
+    {
+      "source": "/quote",
+      "destination": "https://nov8rs-quote-new.vercel.app/",
+      "permanent": false
+    }
+  ]
+}
